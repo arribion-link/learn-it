@@ -3,13 +3,13 @@ What is STK Push?
 STK Push leverages the SIM Application Toolkit to send a prompt directly to a customer’s phone, asking them to enter their M-Pesa PIN to complete a payment. It eliminates the need for customers to remember paybill numbers, account numbers, or transaction codes, significantly reducing friction in the payment process.
 
 
+
+
 ### Prerequisites
 
-- A Safaricom Developer Account (register at developer.safaricom.co.ke)
-- M-Pesa API credentials (Consumer Key and Secret)
-- Node.js and npm installed
-- Basic knowledge of Express.js
-- A publicly accessible URL for callbacks (we’ll use ngrok for development)
+- **Safaricom Daraja Developer Account:** Create an account on the Safaricom Daraja Developer Portal.
+- **Mpesa Application:** Create an application within your developer account to obtain consumer key and secret.
+- **Node.js Project:** Set up a basic Node.js project (e.g., using Express.js) and install necessary packages like axios for HTTP requests and dotenv for environment variables.
 
 ### API credentials:
 
@@ -19,6 +19,25 @@ STK Push leverages the SIM Application Toolkit to send a prompt directly to a cu
 - PASS_KEY=bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919  # Default sandbox passkey
 - CALLBACK_URL=https://your-callback-url.com/api/mpesa/callback
 
+### Credentials:
+   
+- **Consumer Key and Secret:** After creating your app on the Daraja portal, find your consumer key and secret in the app details.
+- **Initiator Password and Security Credential (for specific APIs like B2C):** Generate these from the "Test Credentials" section on the Daraja portal for sandbox or obtain them from your Mpesa web portal for production.
+Certificate Path (optional): If using a custom certificate for secure communication, note its path.
+
+### 1. Environment Setup:
+
+dotenv: Create a .env file in your project root and store your credentials securely as environment variables.
+
+
+Code
+
+```bash
+    SAFARICOM_CONSUMER_KEY=your_consumer_key
+    SAFARICOM_CONSUMER_SECRET=your_consumer_secret
+    INITIATOR_PASSWORD=your_initiator_password
+    SECURITY_CREDENTIAL=your_security_credential
+```
 
 ### The payload definition
 
